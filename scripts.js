@@ -96,7 +96,8 @@ function sprawdz(nr)
         {
             if (haslo.charAt(i) == litery[nr])
                 {
-                    haslo1.charAt(i) = litery[nr];
+                    haslo1 = haslo1.ustawZnak(i, litery[nr]);
                 }
         }
+    wypisz_haslo();
 }
