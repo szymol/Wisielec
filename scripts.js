@@ -1,6 +1,8 @@
 var haslo = "Java Script";
 haslo = haslo.toUpperCase ();
 
+var ileskuch =0;
+
 var dlugosc = haslo.length;
 
 var haslo1 = "";
@@ -92,12 +94,51 @@ String.prototype.ustawZnak = function(miejsce, znak)
 }
 function sprawdz(nr)
 {
+    var trafiona = false;
+    
     for (i=0; i<dlugosc; i++)
         {
+            
             if (haslo.charAt(i) == litery[nr])
                 {
                     haslo1 = haslo1.ustawZnak(i, litery[nr]);
+                    trafiona = true;
                 }
         }
-    wypisz_haslo();
-}
+    if (trafiona == true)
+        {
+            var element = "lit" + nr;
+            document.getElementById(element).style.background = "#003300";
+            document.getElementById(element).style.color = "#00C000";
+            document.getElementById(element).style.border = "3px solid #00C000";
+            document.getElementById(element).style.cursor = "default";
+            
+            wypisz_haslo();
+        }
+    else
+        {
+            var element = "lit" + nr;
+            document.getElementById(element).style.background = "#330000";
+            document.getElementById(element).style.color = "#C00000";
+            document.getElementById(element).style.border = "3px solid #C00000";
+            document.getElementById(element).style.cursor = "default"; document.getElementById(element).setAttribute("onclick",";");
+            
+            
+            //skucha
+            ileskuch ++;
+            var obraz = "img/s" + ileskuch + ".jpg";
+            document.getElementById("szubienica").innerHTML = '<img src="'+obraz+'" alt=""/>';
+            
+            
+        }
+    //wygrana
+    if (haslo == haslo1)
+        {
+            document.getElementById("alfabet").innerHTML = "WYGRANA!!! Hasło: " + haslo + '<br/><br/><span class="reset" onclick="location.reload()">Jeszcze raz?</span>';
+        }
+    //przegrana
+    if (ileskuch >=9 )
+        {
+            document.getElementById("alfabet").innerHTML = "PRZEGRANA! Hasło: " + haslo + '<br/><br/><span class="reset" onclick="location.reload()">Jeszcze raz?</span>';
+        }
+        }
