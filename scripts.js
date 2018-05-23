@@ -1,4 +1,14 @@
-var haslo = "Java Script";
+//var haslo = "Java Script";
+var hasla = new Array(5);
+hasla[0] = "Java scrit";
+hasla[1] = "It jest super ";
+hasla[2] = "piłka nożna";
+hasla[3] = "woda mineralna";
+hasla[4] = "myszka";
+
+var haslo = hasla[Math.floor(Math.random()*5)];
+
+
 haslo = haslo.toUpperCase ();
 
 var ileskuch =0;
